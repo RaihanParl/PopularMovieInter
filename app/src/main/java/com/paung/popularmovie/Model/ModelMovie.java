@@ -3,6 +3,7 @@ package com.paung.popularmovie.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,9 +22,11 @@ public class ModelMovie {
     public Integer totalPages;
     @SerializedName("results")
     @Expose
-    public List<ResultMovie> results = null;
-
-    private class ResultMovie {
+    public ArrayList<ResultMovie> results;
+    public ArrayList<ResultMovie> getResults() {
+        return results;
+    }
+    public class ResultMovie {
         @SerializedName("vote_count")
         @Expose
         public Integer voteCount;
@@ -66,5 +69,12 @@ public class ModelMovie {
         @SerializedName("release_date")
         @Expose
         public String releaseDate;
+
+        public String getPoster()
+        {
+            return "https://image.tmdb.org/t/p/w780/"+this.posterPath;
+        }
     }
+
+
 }

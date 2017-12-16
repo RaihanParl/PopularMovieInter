@@ -1,5 +1,9 @@
 package com.paung.popularmovie.Networking;
 
+import com.paung.popularmovie.Model.ModelMovie;
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 
