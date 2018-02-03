@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Favorite.FavoriteMain" />
+        <provider
+            android:name="com.paung.popularmovie.Favorite.FavoriteProvider"
+            android:authorities="com.paung.popularmovie"
+            android:exported="false"/>
     </application>
 
 </manifest>
