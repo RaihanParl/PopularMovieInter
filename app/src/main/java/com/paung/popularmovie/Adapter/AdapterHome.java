@@ -2,6 +2,7 @@ package com.paung.popularmovie.Adapter;
 
 import android.content.Context;
 import android.graphics.Movie;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Display;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.paung.popularmovie.Model.ModelMovie;
@@ -44,6 +46,13 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> {
         holder.textList.setText(modelMovie.get(position).title);
         Glide.with(c).load(resultMovie.getPoster()).
                 into(holder.imageList);
+        holder.cardList.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Toast.makeText(c, "clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
     }
 
     @Override
@@ -56,10 +65,12 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageList;
         TextView textList;
+        CardView cardList;
         public ViewHolder(View itemView) {
             super(itemView);
             imageList = itemView.findViewById(R.id.image_list);
             textList = itemView.findViewById(R.id.text_list);
+            cardList = itemView.findViewById(R.id.card_list);
         }
     }
 }
